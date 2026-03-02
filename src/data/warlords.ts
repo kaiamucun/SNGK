@@ -1,0 +1,233 @@
+import { Warlord, WarlordId } from '@/types';
+
+export const warlords: Record<WarlordId, Warlord> = {
+  tokugawa: {
+    id: 'tokugawa',
+    name: '徳川家康',
+    title: '天下人の忍耐',
+    style: '王道のタイト・アグレッシブ',
+    description:
+      '参加率を極限まで絞り、最高効率のハンドのみで攻める。家康のように「鳴くまで待つ」姿勢で、確実な期待値（EV）だけを回収して最後に勝つ。',
+    category: 'tight',
+    categoryLabel: 'タイト系',
+    traits: ['忍耐強い', '堅実', '長期思考'],
+    imagePath: '/images/warlords/tokugawa.jpg',
+  },
+  saito: {
+    id: 'saito',
+    name: '斎藤道三',
+    title: 'マムシの誘引',
+    style: 'タイト・スロープレイ',
+    description:
+      '強い手を持っている時ほど弱く見せ、相手にブラフを打たせる。マムシが獲物を呑み込むように、チェックレイズで一気にスタックを奪う。',
+    category: 'tight',
+    categoryLabel: 'タイト系',
+    traits: ['狡猾', '読み巧者', '待ち伏せ型'],
+    imagePath: '/images/warlords/saito.jpg',
+  },
+  akechi: {
+    id: 'akechi',
+    name: '明智光秀',
+    title: '三日天下の衝撃',
+    style: 'タイト・ポラライズ',
+    description:
+      '完璧な礼儀（タイトなイメージ）を積み上げ、相手が油断した瞬間に「本能寺」級の巨大ブラフを敢行。イメージのギャップで相手をフリーズさせる。',
+    category: 'tight',
+    categoryLabel: 'タイト系',
+    traits: ['計算高い', 'イメージ戦略', '一撃必殺'],
+    imagePath: '/images/warlords/akechi.jpg',
+  },
+  honda: {
+    id: 'honda',
+    name: '本多忠勝',
+    title: '無傷の戦神',
+    style: '防御的タイト',
+    description:
+      '生涯無傷を誇る防御力。負ける勝負には1ミリも乗らず、絶対に勝てる時だけ槍を振るう。チップを減らさないことが最大の攻撃。',
+    category: 'tight',
+    categoryLabel: 'タイト系',
+    traits: ['無敗志向', '超堅実', '守りの達人'],
+    imagePath: '/images/warlords/honda.jpg',
+  },
+  oda: {
+    id: 'oda',
+    name: '織田信長',
+    title: '三段撃ちの波状攻撃',
+    style: '最先端のルーズ・アグレッシブ',
+    description:
+      '広いレンジを最新理論（GTO）で運用。火縄銃の如く絶え間ないベットを繰り出し、相手の思考が追いつく前に場を更地にする。',
+    category: 'loose',
+    categoryLabel: 'ルーズ系',
+    traits: ['革新的', '圧倒的攻撃力', '戦略家'],
+    imagePath: '/images/warlords/oda.jpg',
+  },
+  shibata: {
+    id: 'shibata',
+    name: '柴田勝家',
+    title: '瓶割り柴田の突撃',
+    style: '連続攻撃型',
+    description:
+      '退路を断ち、全ストリートでポットを膨らませる。相手が「降りる」と言うまで攻撃の手を緩めず、精神的な圧迫感で勝ち切る。',
+    category: 'loose',
+    categoryLabel: 'ルーズ系',
+    traits: ['猛攻型', '不退転', '精神的圧力'],
+    imagePath: '/images/warlords/shibata.jpg',
+  },
+  maeda: {
+    id: 'maeda',
+    name: '前田慶次',
+    title: '予測不能な傾奇',
+    style: '変則ライン型',
+    description:
+      '常識外のハンドで参加し、奇想天外なアクションを連発。相手の「定石」を破壊し、カオスな状況下での直感勝負に引きずり込む。',
+    category: 'loose',
+    categoryLabel: 'ルーズ系',
+    traits: ['型破り', '天才的直感', '予測不能'],
+    imagePath: '/images/warlords/maeda.jpg',
+  },
+  toyotomi: {
+    id: 'toyotomi',
+    name: '豊臣秀吉',
+    title: '一夜城の浸食',
+    style: 'リスク回避型ルーズ',
+    description:
+      '低リスク・多参加。小さなバリューを積み重ね、気づけば相手の領土（スタック）を削り取っている。人たらしの如く「安く」参加して大きく奪う。',
+    category: 'loose',
+    categoryLabel: 'ルーズ系',
+    traits: ['コツコツ型', '低リスク戦略', '人心掌握'],
+    imagePath: '/images/warlords/toyotomi.jpg',
+  },
+  imagawa: {
+    id: 'imagawa',
+    name: '今川義元',
+    title: '海道一の支配力',
+    style: '弱い相手専用エクスプロイト',
+    description:
+      '相手が「格下」なら、徹底的にそのミスを収穫する。相手のレベルに合わせて戦略を変幻自在に操り、最も効率的な方法でチップを吸い上げる。',
+    category: 'exploit',
+    categoryLabel: 'エクスプロイト系',
+    traits: ['相手分析', '効率重視', 'ターゲット特化'],
+    imagePath: '/images/warlords/imagawa.jpg',
+  },
+  tachibana: {
+    id: 'tachibana',
+    name: '立花宗茂',
+    title: '西国無双の速攻',
+    style: 'プリフロップ特化',
+    description:
+      '相手がオープンした瞬間にリレイズ（3-Bet）で斬り伏せる。相手に自由にプレイさせず、主導権を常に自分が握り続けるスタイル。',
+    category: 'exploit',
+    categoryLabel: 'エクスプロイト系',
+    traits: ['速攻型', '主導権重視', 'プリフロップ最強'],
+    imagePath: '/images/warlords/tachibana.jpg',
+  },
+  uesugi: {
+    id: 'uesugi',
+    name: '上杉謙信',
+    title: '車懸りの猛攻',
+    style: '心理追求型',
+    description:
+      '「義」という名の強いレンジを背負い、相手がコールできない額をぶち込む。軍神の威圧感で、相手の「オッズに合う・合わない」の計算を狂わせる。',
+    category: 'exploit',
+    categoryLabel: 'エクスプロイト系',
+    traits: ['心理的威圧', '強引な圧力', '軍神の存在感'],
+    imagePath: '/images/warlords/uesugi.jpg',
+  },
+  kuroda: {
+    id: 'kuroda',
+    name: '黒田官兵衛',
+    title: '水鏡の策謀',
+    style: '印象操作型',
+    description:
+      '自分のハンドを霧の中に隠す。相手に「ブラフだ」と思わせてコールさせ、「強い」と思わせて降ろす。情報の非対称性で戦場を完全に支配する。',
+    category: 'exploit',
+    categoryLabel: 'エクスプロイト系',
+    traits: ['情報戦', '心理操作', '霧の戦術'],
+    imagePath: '/images/warlords/kuroda.jpg',
+  },
+  takeda: {
+    id: 'takeda',
+    name: '武田信玄',
+    title: '風林火山',
+    style: '均衡戦略（GTO）',
+    description:
+      '状況に応じ、数学的に隙のない陣（GTO）を敷く。崩そうとしても崩れない山のような安定感で、相手のミスを必然的に誘発させて勝つ。',
+    category: 'gto',
+    categoryLabel: 'GTO系',
+    traits: ['数学的完璧', '均衡戦略', '揺るぎない安定感'],
+    imagePath: '/images/warlords/takeda.jpg',
+  },
+  date: {
+    id: 'date',
+    name: '伊達政宗',
+    title: '独眼竜の野望',
+    style: '位置優位特化',
+    description:
+      '常に「有利な位置（ボタン付近）」から獲物を狙う。遅れてきた天才らしく、他のプレイヤーが疲弊した後にサイドから美味しいポットを総取りする。',
+    category: 'gto',
+    categoryLabel: 'GTO系',
+    traits: ['ポジション重視', '後出し最強', '位置の天才'],
+    imagePath: '/images/warlords/date.jpg',
+  },
+  sanada: {
+    id: 'sanada',
+    name: '真田幸村',
+    title: '日本一の兵',
+    style: '残りチップ量特化',
+    description:
+      '少ないスタックでも、十文字槍を振るうが如き「オールイン」のタイミングが完璧。死地（ショート）からでも一気に逆転する勝負強さ。',
+    category: 'gto',
+    categoryLabel: 'GTO系',
+    traits: ['逆転の達人', '完璧なタイミング', '土壇場に強い'],
+    imagePath: '/images/warlords/sanada.jpg',
+  },
+  mori: {
+    id: 'mori',
+    name: '毛利元就',
+    title: '三本の矢の結束',
+    style: '場の流れ支配型',
+    description:
+      '誰が熱くなっているか、誰がチルト（激怒）しているかを見抜く。テーブルの全履歴を繋ぎ合わせ、最も脆いプレイヤーを調略で沈める。',
+    category: 'gto',
+    categoryLabel: 'GTO系',
+    traits: ['テーブル観察', 'チルト狩り', '長期戦略'],
+    imagePath: '/images/warlords/mori.jpg',
+  },
+};
+
+export const categories = [
+  {
+    id: 'tight' as const,
+    label: 'タイト系',
+    subtitle: '堅実・確実型（4種）',
+    description: '参加率を絞り、確実性の高いハンドで戦う4種。',
+    color: 'from-blue-900 to-blue-700',
+    borderColor: 'border-blue-500',
+  },
+  {
+    id: 'loose' as const,
+    label: 'ルーズ系',
+    subtitle: '広範囲・変則型（4種）',
+    description: '広いハンドレンジを使い、技術で相手を圧倒する4種。',
+    color: 'from-red-900 to-red-700',
+    borderColor: 'border-red-500',
+  },
+  {
+    id: 'exploit' as const,
+    label: 'エクスプロイト系',
+    subtitle: '相手の弱点を突く型（4種）',
+    description: '特定の相手をターゲットにし、弱点に合わせて戦略を可変させる4種。',
+    color: 'from-purple-900 to-purple-700',
+    borderColor: 'border-purple-500',
+  },
+  {
+    id: 'gto' as const,
+    label: 'GTO・ハイブリッド系',
+    subtitle: 'バランス・適応型（4種）',
+    description: '状況や数学的均衡を重視した、ハイレベルな4種。',
+    color: 'from-amber-900 to-amber-700',
+    borderColor: 'border-amber-500',
+  },
+];
+
+export const warlordList = Object.values(warlords);

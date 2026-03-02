@@ -1,65 +1,94 @@
-import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative overflow-hidden">
+      {/* 背景装飾 */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-900/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-red-900/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-blue-900/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative z-10 max-w-2xl w-full text-center">
+        {/* ロゴ/タイトル */}
+        <div className="mb-4">
+          <p className="text-amber-400 text-sm tracking-[0.3em] uppercase mb-2">
+            SENGOKU POKER TOUR
           </p>
+          <div className="kamon-divider w-32 mx-auto mb-4" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <h1 className="text-4xl sm:text-5xl font-bold mb-2 leading-tight" style={{ color: '#f0e6d0' }}>
+          戦国武将
+        </h1>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6" style={{ color: '#d4a017' }}>
+          ポーカー診断
+        </h2>
+
+        <div className="kamon-divider w-48 mx-auto mb-8" />
+
+        <p className="text-lg mb-2" style={{ color: '#c8b88a' }}>
+          あなたのポーカースタイルは、
+        </p>
+        <p className="text-lg mb-8" style={{ color: '#c8b88a' }}>
+          戦国時代のどの武将に近い？
+        </p>
+
+        <p className="text-sm mb-10" style={{ color: '#8a7a5a' }}>
+          8つの質問に答えて、あなたの戦国武将タイプを診断しよう
+        </p>
+
+        {/* カテゴリ紹介 */}
+        <div className="grid grid-cols-2 gap-3 mb-10 text-left">
+          {[
+            { label: 'タイト系', desc: '堅実・忍耐型', icon: '🏯', color: 'border-blue-500/40' },
+            { label: 'ルーズ系', desc: '攻撃・変則型', icon: '⚔️', color: 'border-red-500/40' },
+            { label: 'エクスプロイト系', desc: '心理・策略型', icon: '🎭', color: 'border-purple-500/40' },
+            { label: 'GTO系', desc: 'バランス・数学型', icon: '⚖️', color: 'border-amber-500/40' },
+          ].map((cat) => (
+            <div
+              key={cat.label}
+              className={`rounded-lg p-3 border ${cat.color}`}
+              style={{ background: 'rgba(26,41,66,0.5)' }}
+            >
+              <div className="text-xl mb-1">{cat.icon}</div>
+              <div className="font-bold text-sm" style={{ color: '#f0e6d0' }}>{cat.label}</div>
+              <div className="text-xs" style={{ color: '#8a7a5a' }}>{cat.desc}</div>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="/quiz"
+            className="inline-block px-10 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg"
+            style={{
+              background: 'linear-gradient(135deg, #d4a017, #f5c842)',
+              color: '#0a0f1e',
+              boxShadow: '0 4px 20px rgba(212, 160, 23, 0.3)',
+            }}
+          >
+            診断スタート ▶
+          </Link>
+
+          <Link
+            href="/list"
+            className="inline-block px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 hover:scale-105"
+            style={{
+              background: 'transparent',
+              color: '#d4a017',
+              border: '1px solid #d4a017',
+            }}
+          >
+            武将一覧を見る
+          </Link>
+        </div>
+
+        <p className="mt-8 text-xs" style={{ color: '#8a7a5a' }}>
+          全16種の戦国武将から診断 • X（Twitter）でシェア可能
+        </p>
+      </div>
+    </main>
   );
 }
