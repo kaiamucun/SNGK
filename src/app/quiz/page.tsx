@@ -34,6 +34,16 @@ export default function QuizPage() {
     }
   }
 
+  function handleBack() {
+    if (currentIndex === 0) {
+      router.push('/');
+    } else {
+      setCurrentIndex(currentIndex - 1);
+      setSelectedOption(answers[currentIndex - 1]);
+      setAnswers(answers.slice(0, currentIndex - 1));
+    }
+  }
+
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
       {/* ヘッダー */}
@@ -112,28 +122,41 @@ export default function QuizPage() {
         </div>
       </div>
 
-      {/* 次へボタン */}
-      <button
-        onClick={handleNext}
-        disabled={!selectedOption}
-        className="px-10 py-4 rounded-lg font-bold text-lg transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
-        style={
-          selectedOption
-            ? {
-                background: 'linear-gradient(135deg, #d4a017, #f5c842)',
-                color: '#0a0f1e',
-                boxShadow: '0 4px 20px rgba(212,160,23,0.3)',
-                transform: 'scale(1)',
-              }
-            : {
-                background: 'rgba(212,160,23,0.2)',
-                color: '#6a5a3a',
-                cursor: 'not-allowed',
-              }
-        }
-      >
-        {isLast ? '診断結果を見る ▶' : '次の質問へ ▶'}
-      </button>
+      {/* ボタン行 */}
+      <div className="flex items-center gap-4">
+        <button
+          onClick={handleBack}
+          className="px-6 py-4 rounded-lg font-bold text-base transition-all duration-200 hover:opacity-80"
+          style={{
+            background: 'transparent',
+            color: '#8a7a5a',
+            border: '1px solid rgba(138,122,90,0.4)',
+          }}
+        >
+          ◀ 戻る
+        </button>
+
+        <button
+          onClick={handleNext}
+          disabled={!selectedOption}
+          className="px-10 py-4 rounded-lg font-bold text-lg transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+          style={
+            selectedOption
+              ? {
+                  background: 'linear-gradient(135deg, #d4a017, #f5c842)',
+                  color: '#0a0f1e',
+                  boxShadow: '0 4px 20px rgba(212,160,23,0.3)',
+                }
+              : {
+                  background: 'rgba(212,160,23,0.2)',
+                  color: '#6a5a3a',
+                  cursor: 'not-allowed',
+                }
+          }
+        >
+          {isLast ? '診断結果を見る ▶' : '次の質問へ ▶'}
+        </button>
+      </div>
 
       {/* 質問ドット */}
       <div className="flex gap-2 mt-6">
