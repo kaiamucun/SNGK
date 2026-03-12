@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -42,19 +43,23 @@ export default function Home() {
         {/* カテゴリ紹介 */}
         <div className="grid grid-cols-2 gap-3 mb-10 text-left">
           {[
-            { label: 'タイト系', desc: '堅実・忍耐型', icon: '🏯', color: 'border-blue-500/40' },
-            { label: 'ルーズ系', desc: '攻撃・変則型', icon: '⚔️', color: 'border-red-500/40' },
-            { label: 'エクスプロイト系', desc: '心理・策略型', icon: '🎭', color: 'border-purple-500/40' },
-            { label: 'GTO系', desc: 'バランス・数学型', icon: '⚖️', color: 'border-amber-500/40' },
+            { label: 'タイト系', desc: '堅実・忍耐型', img: '/images/warlords/tokugawa.png', name: '徳川家康', color: 'border-blue-500/40' },
+            { label: 'ルーズ系', desc: '攻撃・変則型', img: '/images/warlords/oda.png', name: '織田信長', color: 'border-red-500/40' },
+            { label: 'エクスプロイト系', desc: '心理・策略型', img: '/images/warlords/uesugi.png', name: '上杉謙信', color: 'border-purple-500/40' },
+            { label: 'GTO系', desc: 'バランス・数学型', img: '/images/warlords/takeda.png', name: '武田信玄', color: 'border-amber-500/40' },
           ].map((cat) => (
             <div
               key={cat.label}
-              className={`rounded-lg p-3 border ${cat.color}`}
+              className={`rounded-lg p-3 border ${cat.color} flex items-center gap-3`}
               style={{ background: 'rgba(26,41,66,0.5)' }}
             >
-              <div className="text-xl mb-1">{cat.icon}</div>
-              <div className="font-bold text-sm" style={{ color: '#f0e6d0' }}>{cat.label}</div>
-              <div className="text-xs" style={{ color: '#8a7a5a' }}>{cat.desc}</div>
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden relative">
+                <Image src={cat.img} alt={cat.name} fill className="object-cover object-top" />
+              </div>
+              <div>
+                <div className="font-bold text-sm" style={{ color: '#f0e6d0' }}>{cat.label}</div>
+                <div className="text-xs" style={{ color: '#8a7a5a' }}>{cat.desc}</div>
+              </div>
             </div>
           ))}
         </div>
