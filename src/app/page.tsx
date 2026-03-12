@@ -37,7 +37,7 @@ export default function Home() {
         </p>
 
         <p className="text-sm mb-10" style={{ color: '#8a7a5a' }}>
-          8つの質問に答えて、あなたの戦国武将タイプを診断しよう
+          10の質問に答えて、あなたの戦国武将タイプを診断しよう
         </p>
 
         {/* カテゴリ紹介 */}
