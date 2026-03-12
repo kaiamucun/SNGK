@@ -11,7 +11,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'tight',
     categoryLabel: 'タイト系',
     traits: ['忍耐強い', '堅実', '長期思考'],
-    imagePath: '/images/warlords/tokugawa.jpg',
+    imagePath: '/images/warlords/tokugawa.png',
   },
   saito: {
     id: 'saito',
@@ -35,7 +35,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'tight',
     categoryLabel: 'タイト系',
     traits: ['計算高い', 'イメージ戦略', '一撃必殺'],
-    imagePath: '/images/warlords/akechi.jpg',
+    imagePath: '/images/warlords/akechi.png',
   },
   honda: {
     id: 'honda',
@@ -47,7 +47,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'tight',
     categoryLabel: 'タイト系',
     traits: ['無敗志向', '超堅実', '守りの達人'],
-    imagePath: '/images/warlords/honda.jpg',
+    imagePath: '/images/warlords/honda.png',
   },
   oda: {
     id: 'oda',
@@ -59,7 +59,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'loose',
     categoryLabel: 'ルーズ系',
     traits: ['革新的', '圧倒的攻撃力', '戦略家'],
-    imagePath: '/images/warlords/oda.jpg',
+    imagePath: '/images/warlords/oda.png',
   },
   shibata: {
     id: 'shibata',
@@ -71,7 +71,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'loose',
     categoryLabel: 'ルーズ系',
     traits: ['猛攻型', '不退転', '精神的圧力'],
-    imagePath: '/images/warlords/shibata.jpg',
+    imagePath: '/images/warlords/shibata.png',
   },
   maeda: {
     id: 'maeda',
@@ -83,7 +83,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'loose',
     categoryLabel: 'ルーズ系',
     traits: ['型破り', '天才的直感', '予測不能'],
-    imagePath: '/images/warlords/maeda.jpg',
+    imagePath: '/images/warlords/maeda.png',
   },
   toyotomi: {
     id: 'toyotomi',
@@ -95,7 +95,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'loose',
     categoryLabel: 'ルーズ系',
     traits: ['コツコツ型', '低リスク戦略', '人心掌握'],
-    imagePath: '/images/warlords/toyotomi.jpg',
+    imagePath: '/images/warlords/toyotomi.png',
   },
   imagawa: {
     id: 'imagawa',
@@ -119,7 +119,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'exploit',
     categoryLabel: 'エクスプロイト系',
     traits: ['速攻型', '主導権重視', 'プリフロップ最強'],
-    imagePath: '/images/warlords/tachibana.jpg',
+    imagePath: '/images/warlords/tachibana.png',
   },
   uesugi: {
     id: 'uesugi',
@@ -131,7 +131,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'exploit',
     categoryLabel: 'エクスプロイト系',
     traits: ['心理的威圧', '強引な圧力', '軍神の存在感'],
-    imagePath: '/images/warlords/uesugi.jpg',
+    imagePath: '/images/warlords/uesugi.png',
   },
   kuroda: {
     id: 'kuroda',
@@ -155,7 +155,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'gto',
     categoryLabel: 'GTO系',
     traits: ['数学的完璧', '均衡戦略', '揺るぎない安定感'],
-    imagePath: '/images/warlords/takeda.jpg',
+    imagePath: '/images/warlords/takeda.png',
   },
   date: {
     id: 'date',
@@ -179,7 +179,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'gto',
     categoryLabel: 'GTO系',
     traits: ['逆転の達人', '完璧なタイミング', '土壇場に強い'],
-    imagePath: '/images/warlords/sanada.jpg',
+    imagePath: '/images/warlords/sanada.png',
   },
   mori: {
     id: 'mori',
@@ -191,7 +191,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'gto',
     categoryLabel: 'GTO系',
     traits: ['テーブル観察', 'チルト狩り', '長期戦略'],
-    imagePath: '/images/warlords/mori.jpg',
+    imagePath: '/images/warlords/mori.png',
   },
 };
 

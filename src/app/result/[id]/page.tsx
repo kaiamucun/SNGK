@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { warlords, categories } from '@/data/warlords';
@@ -84,12 +85,21 @@ export default async function ResultPage({ params }: Props) {
             {category?.label} — {category?.subtitle}
           </div>
 
-          {/* 武将画像エリア（画像追加後は imagePath に差し替え） */}
+          {/* 武将画像エリア */}
           <div
-            className="w-full h-48 sm:h-64 flex items-center justify-center"
+            className="w-full h-48 sm:h-64 relative flex items-center justify-center overflow-hidden"
             style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.5), rgba(26,41,66,0.8))' }}
           >
-            <span className="text-8xl opacity-40">⚔️</span>
+            {warlord.imagePath ? (
+              <Image
+                src={warlord.imagePath}
+                alt={warlord.name}
+                fill
+                className="object-cover object-top"
+              />
+            ) : (
+              <span className="text-8xl opacity-40">⚔️</span>
+            )}
           </div>
 
           <div className="p-6 sm:p-8">

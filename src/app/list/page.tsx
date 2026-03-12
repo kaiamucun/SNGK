@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { warlords, categories } from '@/data/warlords';
 import { Metadata } from 'next';
@@ -86,10 +87,19 @@ export default function ListPage() {
                   >
                     <div className="flex items-start gap-4">
                       <div
-                        className="flex-shrink-0 w-14 h-14 rounded-lg flex items-center justify-center text-2xl"
+                        className="flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden relative"
                         style={{ background: 'rgba(212,160,23,0.1)' }}
                       >
-                        ⚔️
+                        {warlord.imagePath ? (
+                          <Image
+                            src={warlord.imagePath}
+                            alt={warlord.name}
+                            fill
+                            className="object-cover object-top"
+                          />
+                        ) : (
+                          <span className="w-full h-full flex items-center justify-center text-2xl">⚔️</span>
+                        )}
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-xs mb-0.5" style={{ color: '#d4a017' }}>
