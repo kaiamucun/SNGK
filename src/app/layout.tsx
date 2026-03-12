@@ -15,11 +15,20 @@ export const metadata: Metadata = {
     siteName: '戦国ポーカーツアー',
     type: 'website',
     locale: 'ja_JP',
+    images: [
+      {
+        url: `${siteUrl}/images/ogp.png`,
+        width: 1200,
+        height: 1200,
+        alt: '戦国ポーカー武将診断',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: '戦国ポーカー武将診断 | 戦国ポーカーツアー',
     description: 'あなたのポーカースタイルは戦国時代のどの武将？10の質問に答えて診断しよう！',
+    images: [`${siteUrl}/images/ogp.png`],
   },
 };
 
