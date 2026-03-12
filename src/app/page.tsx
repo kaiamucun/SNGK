@@ -91,7 +91,7 @@ export default function Home() {
         </div>
 
         <p className="mt-8 text-xs" style={{ color: '#8a7a5a' }}>
-          全16種の戦国武将から診断 • X（Twitter）でシェア可能
+          全16種の戦国武将から診断
         </p>
       </div>
     </main>
