@@ -23,7 +23,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'tight',
     categoryLabel: 'タイト系',
     traits: ['狡猾', '読み巧者', '待ち伏せ型'],
-    imagePath: '',
+    imagePath: '/images/warlords/saito.png',
   },
   akechi: {
     id: 'akechi',
@@ -107,7 +107,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'exploit',
     categoryLabel: 'エクスプロイト系',
     traits: ['相手分析', '効率重視', 'ターゲット特化'],
-    imagePath: '',
+    imagePath: '/images/warlords/imagawa.png',
   },
   tachibana: {
     id: 'tachibana',
@@ -143,7 +143,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'exploit',
     categoryLabel: 'エクスプロイト系',
     traits: ['情報戦', '心理操作', '霧の戦術'],
-    imagePath: '',
+    imagePath: '/images/warlords/kuroda.png',
   },
   takeda: {
     id: 'takeda',
@@ -167,7 +167,7 @@ export const warlords: Record<WarlordId, Warlord> = {
     category: 'gto',
     categoryLabel: 'GTO系',
     traits: ['ポジション重視', '後出し最強', '位置の天才'],
-    imagePath: '',
+    imagePath: '/images/warlords/date.png',
   },
   sanada: {
     id: 'sanada',
