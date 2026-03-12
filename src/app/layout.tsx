@@ -19,8 +19,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className="antialiased min-h-screen" style={{ background: '#0a0f1e', color: '#f0e6d0' }}>
-        {children}
+      <body
+        className="antialiased min-h-screen"
+        style={{
+          color: '#f0e6d0',
+          backgroundImage: 'url(/images/bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          backgroundColor: '#0a0f1e',
+        }}
+      >
+        <div
+          className="min-h-screen"
+          style={{ background: 'rgba(5, 8, 20, 0.75)' }}
+        >
+          {children}
+        </div>
       </body>
     </html>
   );
