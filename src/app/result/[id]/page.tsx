@@ -87,7 +87,7 @@ export default async function ResultPage({ params }: Props) {
 
           {/* 武将画像エリア */}
           <div
-            className="w-full h-48 sm:h-64 relative flex items-center justify-center overflow-hidden"
+            className="w-full h-64 sm:h-80 relative flex items-center justify-center overflow-hidden"
             style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.5), rgba(26,41,66,0.8))' }}
           >
             {warlord.imagePath ? (
@@ -95,7 +95,7 @@ export default async function ResultPage({ params }: Props) {
                 src={warlord.imagePath}
                 alt={warlord.name}
                 fill
-                className="object-cover object-top"
+                className="object-contain"
               />
             ) : (
               <span className="text-8xl opacity-40">⚔️</span>
@@ -174,7 +174,13 @@ export default async function ResultPage({ params }: Props) {
                   border: '1px solid rgba(212,160,23,0.2)',
                 }}
               >
-                <div className="text-2xl mb-1">⚔️</div>
+                <div className="w-full h-16 relative mb-2 overflow-hidden rounded">
+                  {w.imagePath ? (
+                    <Image src={w.imagePath} alt={w.name} fill className="object-contain" />
+                  ) : (
+                    <span className="w-full h-full flex items-center justify-center text-2xl">⚔️</span>
+                  )}
+                </div>
                 <p className="text-xs font-bold" style={{ color: '#f0e6d0' }}>
                   {w.name}
                 </p>
