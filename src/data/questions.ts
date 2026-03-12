@@ -209,6 +209,58 @@ export const questions: Question[] = [
       },
     ],
   },
+  {
+    id: 9,
+    text: 'ブラインドが上がってスタックが15BB。まだバブルではないあなたの基本方針はどれ？',
+    options: [
+      {
+        id: 'a',
+        text: 'プレミアムハンドが来るまでフォールドし続ける',
+        scores: { honda: 2, tokugawa: 2, saito: 1 },
+      },
+      {
+        id: 'b',
+        text: 'プッシュ/フォールドチャートに従ってプレイする',
+        scores: { takeda: 2, date: 2, tachibana: 1 },
+      },
+      {
+        id: 'c',
+        text: 'ポジションとスタックを見て積極的にスチールを狙う',
+        scores: { oda: 2, date: 1, sanada: 1, kuroda: 1 },
+      },
+      {
+        id: 'd',
+        text: '全部オールイン！死ぬか生きるか！',
+        scores: { sanada: 2, maeda: 2, shibata: 1 },
+      },
+    ],
+  },
+  {
+    id: 10,
+    text: '入賞までもう少し、残り30BBでUTGでJJが配られた。オープンしたらチップリーダーから3BETが…あなたならどうする？',
+    options: [
+      {
+        id: 'a',
+        text: '入賞したいのでフォールド',
+        scores: { honda: 2, tokugawa: 2, saito: 1 },
+      },
+      {
+        id: 'b',
+        text: '少し悩むが、コールしてフロップを見てチャンスを狙う',
+        scores: { imagawa: 2, mori: 1, toyotomi: 1 },
+      },
+      {
+        id: 'c',
+        text: 'チップリーダーのレンジを見てオールインを検討する',
+        scores: { kuroda: 2, takeda: 1, date: 1, akechi: 1 },
+      },
+      {
+        id: 'd',
+        text: 'とにかくオールインしてダブルアップして優勝あるのみ',
+        scores: { sanada: 2, shibata: 1, uesugi: 1, maeda: 1 },
+      },
+    ],
+  },
 ];
 
 export function calculateResult(answers: string[]): string {
