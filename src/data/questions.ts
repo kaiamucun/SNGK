@@ -22,7 +22,7 @@ export const questions: Question[] = [
       },
       {
         id: 'd',
-        text: '期待値（EV）がプラスになるハンドなら参加する',
+        text: '期待値がプラスになるハンドなら参加する',
         scores: { takeda: 2, tachibana: 1, date: 1, sanada: 1 },
       },
     ],
@@ -55,7 +55,7 @@ export const questions: Question[] = [
   },
   {
     id: 3,
-    text: 'ブラフ（虚偽のベット）に対するあなたのスタンスは？',
+    text: 'ブラフに対するあなたのスタンスは？',
     options: [
       {
         id: 'a',
@@ -81,7 +81,7 @@ export const questions: Question[] = [
   },
   {
     id: 4,
-    text: 'ベット（賭け）の規模感は？',
+    text: 'ベットの規模感は？',
     options: [
       {
         id: 'a',
@@ -107,7 +107,7 @@ export const questions: Question[] = [
   },
   {
     id: 5,
-    text: 'テーブルで最も重視する情報は？',
+    text: 'テーブル内で自分や相手プレイヤーについて最も重視する情報は？',
     options: [
       {
         id: 'a',
@@ -116,7 +116,7 @@ export const questions: Question[] = [
       },
       {
         id: 'b',
-        text: '自分のポジション（座席の有利・不利）',
+        text: '自分のポジション',
         scores: { date: 2, oda: 1, tokugawa: 1 },
       },
       {
@@ -133,11 +133,11 @@ export const questions: Question[] = [
   },
   {
     id: 6,
-    text: '大きなピンチ（チップが大幅に減った）の時、どう行動しますか？',
+    text: 'チップが大幅に減って大ピンチ、あなたならどう行動しますか？',
     options: [
       {
         id: 'a',
-        text: 'さらに絞ってサバイバル重視。確実な手だけを待つ',
+        text: 'さらに絞ってタイトに。確実な手だけを待つ',
         scores: { honda: 2, tokugawa: 2, takeda: 1 },
       },
       {
@@ -185,7 +185,7 @@ export const questions: Question[] = [
   },
   {
     id: 8,
-    text: 'ポーカーでの最終的な勝利のビジョンは？',
+    text: 'ポーカーでの最終的な理想な勝利は？',
     options: [
       {
         id: 'a',
