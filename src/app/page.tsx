@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16 relative overflow-hidden">
+    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-16 pb-[calc(4rem+env(safe-area-inset-bottom))] relative overflow-hidden">
       {/* 背景装飾 */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-900/10 rounded-full blur-3xl" />

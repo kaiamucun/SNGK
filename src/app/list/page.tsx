@@ -146,21 +146,34 @@ export default function ListPage() {
         })}
 
         {/* 診断へのCTA */}
-        <div className="text-center mt-8 pb-8">
+        <div className="text-center mt-8 pb-safe pb-8">
           <p className="text-sm mb-4" style={{ color: '#8a7a5a' }}>
             あなたはどの武将タイプ？
           </p>
-          <Link
-            href="/quiz"
-            className="inline-block px-10 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105"
-            style={{
-              background: 'linear-gradient(135deg, #d4a017, #f5c842)',
-              color: '#0a0f1e',
-              boxShadow: '0 4px 20px rgba(212,160,23,0.3)',
-            }}
-          >
-            診断スタート ▶
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
+            <Link
+              href="/"
+              className="inline-block px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105"
+              style={{
+                background: 'rgba(212,160,23,0.15)',
+                color: '#d4a017',
+                border: '2px solid #d4a017',
+              }}
+            >
+              ◀ トップへ戻る
+            </Link>
+            <Link
+              href="/quiz"
+              className="inline-block px-10 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #d4a017, #f5c842)',
+                color: '#0a0f1e',
+                boxShadow: '0 4px 20px rgba(212,160,23,0.3)',
+              }}
+            >
+              診断スタート ▶
+            </Link>
+          </div>
         </div>
       </div>
     </main>
