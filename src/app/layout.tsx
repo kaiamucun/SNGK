@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const siteUrl = 'https://sngkpoker.vercel.app';
+const ogpImage = `${siteUrl}/images/sngk-ogp.png?v=2`;
 
 export const metadata: Metadata = {
   title: '戦国ポーカー武将診断 | 戦国ポーカーツアー',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     images: [
       {
-        url: `${siteUrl}/images/sngk-ogp.png`,
+        url: ogpImage,
         width: 1200,
         height: 1200,
         alt: '戦国ポーカー武将診断',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: '戦国ポーカー武将診断 | 戦国ポーカーツアー',
     description: 'あなたのポーカースタイルは戦国時代のどの武将？10の質問に答えて診断しよう！',
-    images: [`${siteUrl}/images/sngk-ogp.png`],
+    images: [ogpImage],
   },
 };
 
