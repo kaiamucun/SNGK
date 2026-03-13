@@ -8,6 +8,7 @@ import { Metadata } from 'next';
 
 interface Props {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ mode?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -24,8 +25,11 @@ export async function generateStaticParams() {
   return Object.keys(warlords).map((id) => ({ id }));
 }
 
-export default async function ResultPage({ params }: Props) {
+export default async function ResultPage({ params, searchParams }: Props) {
   const { id } = await params;
+  const { mode } = await searchParams;
+  const isInfoMode = mode === 'info';
+
   const warlord = warlords[id as WarlordId];
 
   if (!warlord) {
@@ -44,12 +48,20 @@ export default async function ResultPage({ params }: Props) {
       <div className="max-w-2xl mx-auto">
         {/* ヘッダー */}
         <div className="text-center mb-6">
-          <p className="text-xs tracking-widest uppercase mb-1" style={{ color: '#d4a017' }}>
-            診断結果
-          </p>
-          <p className="text-sm" style={{ color: '#8a7a5a' }}>
-            あなたの戦国ポーカータイプは...
-          </p>
+          {isInfoMode ? (
+            <Link href="/list" className="text-sm hover:opacity-80 block mb-4" style={{ color: '#8a7a5a' }}>
+              ← 一覧へ戻る
+            </Link>
+          ) : (
+            <>
+              <p className="text-xs tracking-widest uppercase mb-1" style={{ color: '#d4a017' }}>
+                診断結果
+              </p>
+              <p className="text-sm" style={{ color: '#8a7a5a' }}>
+                あなたの戦国ポーカータイプは...
+              </p>
+            </>
+          )}
         </div>
 
         {/* メイン結果カード */}
@@ -142,15 +154,17 @@ export default async function ResultPage({ params }: Props) {
           </div>
         </div>
 
-        {/* シェアボタン */}
-        <div className="mb-6">
-          <p className="text-center text-sm mb-3" style={{ color: '#8a7a5a' }}>
-            診断結果をシェアしよう
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <ShareButton shareText={shareText} warlordName={warlord.name} />
+        {/* シェアボタン（診断結果モードのみ） */}
+        {!isInfoMode && (
+          <div className="mb-6">
+            <p className="text-center text-sm mb-3" style={{ color: '#8a7a5a' }}>
+              診断結果をシェアしよう
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <ShareButton shareText={shareText} warlordName={warlord.name} />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* 同カテゴリの武将 */}
         <div
@@ -167,7 +181,7 @@ export default async function ResultPage({ params }: Props) {
             {sameCategory.map((w) => (
               <Link
                 key={w.id}
-                href={`/result/${w.id}`}
+                href={`/result/${w.id}?mode=info`}
                 className="text-center rounded-lg p-3 transition-all hover:opacity-80"
                 style={{
                   background: 'rgba(0,0,0,0.3)',
@@ -193,29 +207,55 @@ export default async function ResultPage({ params }: Props) {
         </div>
 
         {/* アクションボタン */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link
-            href="/quiz"
-            className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
-            style={{
-              background: 'linear-gradient(135deg, #d4a017, #f5c842)',
-              color: '#0a0f1e',
-            }}
-          >
-            もう一度診断する
-          </Link>
-          <Link
-            href="/list"
-            className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
-            style={{
-              background: 'transparent',
-              color: '#d4a017',
-              border: '1px solid #d4a017',
-            }}
-          >
-            全武将一覧を見る
-          </Link>
-        </div>
+        {isInfoMode ? (
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/list"
+              className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #d4a017, #f5c842)',
+                color: '#0a0f1e',
+              }}
+            >
+              ← 一覧へ戻る
+            </Link>
+            <Link
+              href="/quiz"
+              className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
+              style={{
+                background: 'transparent',
+                color: '#d4a017',
+                border: '1px solid #d4a017',
+              }}
+            >
+              診断スタート ▶
+            </Link>
+          </div>
+        ) : (
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/quiz"
+              className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #d4a017, #f5c842)',
+                color: '#0a0f1e',
+              }}
+            >
+              もう一度診断する
+            </Link>
+            <Link
+              href="/list"
+              className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
+              style={{
+                background: 'transparent',
+                color: '#d4a017',
+                border: '1px solid #d4a017',
+              }}
+            >
+              全武将一覧を見る
+            </Link>
+          </div>
+        )}
       </div>
     </main>
   );

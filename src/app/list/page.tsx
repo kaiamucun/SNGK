@@ -82,7 +82,7 @@ export default function ListPage() {
                 {categoryWarlords.map((warlord) => (
                   <Link
                     key={warlord.id}
-                    href={`/result/${warlord.id}`}
+                    href={`/result/${warlord.id}?mode=info`}
                     className="warlord-card rounded-xl p-5 block group"
                   >
                     <div className="flex items-start gap-4">
