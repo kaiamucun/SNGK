@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: '戦国ポーカー武将診断 | 戦国ポーカーツアー',
     description: 'あなたのポーカースタイルは戦国時代のどの武将？10の質問に答えて診断しよう！',
     images: [`${siteUrl}/images/ogp.png`],
