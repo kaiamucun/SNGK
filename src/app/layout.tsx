@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-const siteUrl = 'https://sngkpoker.vercel.app';
+const siteUrl = 'https://sngk-poker.vercel.app';
 const ogpImage = `${siteUrl}/images/sngk-ogp.png?v=2`;
 
 export const metadata: Metadata = {
