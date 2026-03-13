@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     images: [
       {
-        url: `${siteUrl}/images/ogp.png`,
+        url: `${siteUrl}/images/sngk-ogp.png`,
         width: 1200,
         height: 1200,
         alt: '戦国ポーカー武将診断',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: '戦国ポーカー武将診断 | 戦国ポーカーツアー',
     description: 'あなたのポーカースタイルは戦国時代のどの武将？10の質問に答えて診断しよう！',
-    images: [`${siteUrl}/images/ogp.png`],
+    images: [`${siteUrl}/images/sngk-ogp.png`],
   },
 };
 
