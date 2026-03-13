@@ -1,14 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import { warlords, categories } from '@/data/warlords';
 import { WarlordId } from '@/types';
-import ShareButton from '@/components/ShareButton';
 import { Metadata } from 'next';
+import ResultHeader from '@/components/ResultHeader';
+import ResultShareSection from '@/components/ResultShareSection';
+import ResultActions from '@/components/ResultActions';
 
 interface Props {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ mode?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -25,11 +27,8 @@ export async function generateStaticParams() {
   return Object.keys(warlords).map((id) => ({ id }));
 }
 
-export default async function ResultPage({ params, searchParams }: Props) {
+export default async function ResultPage({ params }: Props) {
   const { id } = await params;
-  const { mode } = await searchParams;
-  const isInfoMode = mode === 'info';
-
   const warlord = warlords[id as WarlordId];
 
   if (!warlord) {
@@ -46,23 +45,10 @@ export default async function ResultPage({ params, searchParams }: Props) {
   return (
     <main className="min-h-screen px-4 py-8">
       <div className="max-w-2xl mx-auto">
-        {/* ヘッダー */}
-        <div className="text-center mb-6">
-          {isInfoMode ? (
-            <Link href="/list" className="text-sm hover:opacity-80 block mb-4" style={{ color: '#8a7a5a' }}>
-              ← 一覧へ戻る
-            </Link>
-          ) : (
-            <>
-              <p className="text-xs tracking-widest uppercase mb-1" style={{ color: '#d4a017' }}>
-                診断結果
-              </p>
-              <p className="text-sm" style={{ color: '#8a7a5a' }}>
-                あなたの戦国ポーカータイプは...
-              </p>
-            </>
-          )}
-        </div>
+        {/* ヘッダー（モード別） */}
+        <Suspense fallback={<div className="mb-6" />}>
+          <ResultHeader />
+        </Suspense>
 
         {/* メイン結果カード */}
         <div
@@ -74,7 +60,7 @@ export default async function ResultPage({ params, searchParams }: Props) {
         >
           {/* カテゴリバナー */}
           <div
-            className={`px-6 py-2 text-center text-xs font-bold tracking-widest`}
+            className="px-6 py-2 text-center text-xs font-bold tracking-widest"
             style={{
               background:
                 warlord.category === 'tight'
@@ -155,16 +141,9 @@ export default async function ResultPage({ params, searchParams }: Props) {
         </div>
 
         {/* シェアボタン（診断結果モードのみ） */}
-        {!isInfoMode && (
-          <div className="mb-6">
-            <p className="text-center text-sm mb-3" style={{ color: '#8a7a5a' }}>
-              診断結果をシェアしよう
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <ShareButton shareText={shareText} warlordName={warlord.name} />
-            </div>
-          </div>
-        )}
+        <Suspense fallback={null}>
+          <ResultShareSection shareText={shareText} warlordName={warlord.name} />
+        </Suspense>
 
         {/* 同カテゴリの武将 */}
         <div
@@ -206,56 +185,10 @@ export default async function ResultPage({ params, searchParams }: Props) {
           </div>
         </div>
 
-        {/* アクションボタン */}
-        {isInfoMode ? (
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/list"
-              className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
-              style={{
-                background: 'linear-gradient(135deg, #d4a017, #f5c842)',
-                color: '#0a0f1e',
-              }}
-            >
-              ← 一覧へ戻る
-            </Link>
-            <Link
-              href="/quiz"
-              className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
-              style={{
-                background: 'transparent',
-                color: '#d4a017',
-                border: '1px solid #d4a017',
-              }}
-            >
-              診断スタート ▶
-            </Link>
-          </div>
-        ) : (
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/quiz"
-              className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
-              style={{
-                background: 'linear-gradient(135deg, #d4a017, #f5c842)',
-                color: '#0a0f1e',
-              }}
-            >
-              もう一度診断する
-            </Link>
-            <Link
-              href="/list"
-              className="px-8 py-3 rounded-lg font-bold text-center transition-all hover:scale-105"
-              style={{
-                background: 'transparent',
-                color: '#d4a017',
-                border: '1px solid #d4a017',
-              }}
-            >
-              全武将一覧を見る
-            </Link>
-          </div>
-        )}
+        {/* アクションボタン（モード別） */}
+        <Suspense fallback={null}>
+          <ResultActions />
+        </Suspense>
       </div>
     </main>
   );
