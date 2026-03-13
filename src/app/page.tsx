@@ -33,35 +33,11 @@ export default function Home() {
           戦国時代のどの武将に近い？
         </p>
 
-        <p className="text-sm mb-10" style={{ color: '#8a7a5a' }}>
+        <p className="text-sm mb-8" style={{ color: '#8a7a5a' }}>
           10の質問に答えて、あなたの戦国武将タイプを診断しよう
         </p>
 
-        {/* カテゴリ紹介 */}
-        <div className="grid grid-cols-2 gap-3 mb-10 text-left">
-          {[
-            { label: 'タイト系', desc: '堅実・忍耐型', img: '/images/warlords/tokugawa.png', name: '徳川家康', color: 'border-blue-500/40' },
-            { label: 'ルーズ系', desc: '攻撃・変則型', img: '/images/warlords/oda.png', name: '織田信長', color: 'border-red-500/40' },
-            { label: 'エクスプロイト系', desc: '心理・策略型', img: '/images/warlords/uesugi.png', name: '上杉謙信', color: 'border-purple-500/40' },
-            { label: 'GTO系', desc: 'バランス・数学型', img: '/images/warlords/takeda.png', name: '武田信玄', color: 'border-amber-500/40' },
-          ].map((cat) => (
-            <div
-              key={cat.label}
-              className={`rounded-lg p-3 border ${cat.color} flex items-center gap-3`}
-              style={{ background: 'rgba(26,41,66,0.5)' }}
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden relative">
-                <Image src={cat.img} alt={cat.name} fill className="object-cover object-top" />
-              </div>
-              <div>
-                <div className="font-bold text-sm" style={{ color: '#f0e6d0' }}>{cat.label}</div>
-                <div className="text-xs" style={{ color: '#8a7a5a' }}>{cat.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-3">
           <Link
             href="/quiz"
             className="inline-block px-10 py-4 rounded-lg font-bold text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg"
@@ -73,23 +49,48 @@ export default function Home() {
           >
             診断スタート ▶
           </Link>
-
-          <Link
-            href="/list"
-            className="inline-block px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 hover:scale-105"
-            style={{
-              background: 'transparent',
-              color: '#d4a017',
-              border: '1px solid #d4a017',
-            }}
-          >
-            武将一覧を見る
-          </Link>
         </div>
 
-        <p className="mt-8 text-xs" style={{ color: '#8a7a5a' }}>
+        <p className="mb-10 text-xs" style={{ color: '#8a7a5a' }}>
           全16種の戦国武将から診断
         </p>
+
+        {/* カテゴリ紹介 */}
+        <div className="grid grid-cols-2 gap-3 mb-6 text-left">
+          {[
+            { label: 'タイト系', desc: '堅実・忍耐型', img: '/images/warlords/tokugawa.png', name: '徳川家康', color: 'border-blue-500/40', href: '/list#tight' },
+            { label: 'ルーズ系', desc: '攻撃・変則型', img: '/images/warlords/oda.png', name: '織田信長', color: 'border-red-500/40', href: '/list#loose' },
+            { label: 'エクスプロイト系', desc: '心理・策略型', img: '/images/warlords/uesugi.png', name: '上杉謙信', color: 'border-purple-500/40', href: '/list#exploit' },
+            { label: 'GTO系', desc: 'バランス・数学型', img: '/images/warlords/takeda.png', name: '武田信玄', color: 'border-amber-500/40', href: '/list#gto' },
+          ].map((cat) => (
+            <Link
+              key={cat.label}
+              href={cat.href}
+              className={`rounded-lg p-3 border ${cat.color} flex items-center gap-3 transition-all duration-200 hover:opacity-80 hover:scale-[1.02]`}
+              style={{ background: 'rgba(26,41,66,0.5)' }}
+            >
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden relative">
+                <Image src={cat.img} alt={cat.name} fill className="object-cover object-top" />
+              </div>
+              <div>
+                <div className="font-bold text-sm" style={{ color: '#f0e6d0' }}>{cat.label}</div>
+                <div className="text-xs" style={{ color: '#8a7a5a' }}>{cat.desc}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <Link
+          href="/list"
+          className="inline-block px-8 py-3 rounded-lg font-bold text-sm transition-all duration-200 hover:scale-105"
+          style={{
+            background: 'transparent',
+            color: '#d4a017',
+            border: '1px solid #d4a017',
+          }}
+        >
+          武将一覧を見る
+        </Link>
       </div>
     </main>
   );

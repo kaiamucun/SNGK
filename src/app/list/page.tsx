@@ -33,7 +33,7 @@ export default function ListPage() {
           );
 
           return (
-            <section key={category.id} className="mb-12">
+            <section key={category.id} id={category.id} className="mb-12 scroll-mt-8">
               {/* カテゴリヘッダー */}
               <div
                 className="rounded-lg p-4 mb-4"
