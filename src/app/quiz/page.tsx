@@ -123,23 +123,11 @@ export default function QuizPage() {
       </div>
 
       {/* ボタン行 */}
-      <div className="flex items-center gap-4">
-        <button
-          onClick={handleBack}
-          className="px-6 py-4 rounded-lg font-bold text-base transition-all duration-200 hover:opacity-80"
-          style={{
-            background: 'transparent',
-            color: '#8a7a5a',
-            border: '1px solid rgba(138,122,90,0.4)',
-          }}
-        >
-          ◀ 戻る
-        </button>
-
+      <div className="flex flex-col items-center gap-3 w-full max-w-2xl">
         <button
           onClick={handleNext}
           disabled={!selectedOption}
-          className="px-10 py-4 rounded-lg font-bold text-lg transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="w-full py-4 rounded-lg font-bold text-lg transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
           style={
             selectedOption
               ? {
@@ -155,6 +143,18 @@ export default function QuizPage() {
           }
         >
           {isLast ? '診断結果を見る ▶' : '次の質問へ ▶'}
+        </button>
+
+        <button
+          onClick={handleBack}
+          className="px-6 py-2 rounded-lg font-bold text-sm transition-all duration-200 hover:opacity-80"
+          style={{
+            background: 'transparent',
+            color: '#8a7a5a',
+            border: '1px solid rgba(138,122,90,0.4)',
+          }}
+        >
+          ◀ 戻る
         </button>
       </div>
 
