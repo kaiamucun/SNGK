@@ -13,19 +13,16 @@ export default function Home() {
 
       <div className="relative z-10 max-w-2xl w-full text-center">
         {/* ロゴ/タイトル */}
-        <div className="mb-4">
-          <p className="text-amber-400 text-sm tracking-[0.3em] uppercase mb-2">
-            SENGOKU POKER TOUR
-          </p>
-          <div className="kamon-divider w-32 mx-auto mb-4" />
+        <div className="mb-8 flex justify-center">
+          <Image
+            src="/sengoku-logo.png"
+            alt="戦国ポーカーツアー"
+            width={480}
+            height={240}
+            className="w-full max-w-sm sm:max-w-md object-contain"
+            priority
+          />
         </div>
-
-        <h1 className="text-4xl sm:text-5xl font-bold mb-2 leading-tight" style={{ color: '#f0e6d0' }}>
-          戦国武将
-        </h1>
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6" style={{ color: '#d4a017' }}>
-          ポーカー診断
-        </h2>
 
         <div className="kamon-divider w-48 mx-auto mb-8" />
 
