@@ -30,7 +30,7 @@ export default function Home() {
           あなたのポーカースタイルは、
         </p>
         <p className="text-lg mb-8" style={{ color: '#c8b88a' }}>
-          戦国時代のどの武将に近い？
+          戦国時代のどの武将に近い!？
         </p>
 
         <p className="text-sm mb-8" style={{ color: '#8a7a5a' }}>
